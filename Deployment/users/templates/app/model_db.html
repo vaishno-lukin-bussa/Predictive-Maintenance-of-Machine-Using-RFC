@@ -1,0 +1,144 @@
+{% extends 'users/base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body {
+    background: linear-gradient(to right, #a8bce4, #6791c4);
+    font-family: 'Open Sans', Arial, sans-serif;
+    color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: rgba(253, 248, 248, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(5, 5, 5, 0.3);
+}
+
+.title {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    background-color: #2b2d42;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.table th,
+.table td {
+    padding: 15px;
+    text-align: center;
+    border: none;
+}
+
+.table th {
+    background-color: #ff6f61;
+    color: #ffffff;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.table td {
+    color: #d1d1d1;
+    background-color: #3a3d5a;
+    border-bottom: 2px solid #4a4c63;
+}
+
+.table tr:hover {
+    background-color: #4a4c63;
+    transition: background-color 0.3s ease;
+}
+
+.table tr:nth-child(even) {
+    background-color: #2f324a;
+}
+
+.table tr:nth-child(odd) {
+    background-color: #3a3d5a;
+}
+
+.table th:hover,
+.table td:hover {
+    background-color: #ff9a8b;
+    color: #2b2d42;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.table td:first-child,
+.table th:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+.table td:last-child,
+.table th:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+    </style>
+</head><br><br>
+<body>
+    <div class="container">
+      <center> <h3 style="color: rgb(0, 0, 0);">Machine Failure Prediction Database</h3></center> <br><br>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <tr>
+                        <th>Air_temperature_K</th>
+                        <th>Process_temperature_K</th>
+                        <th>Rotational_speed_rpm</th> 
+                        <th>Torque_Nm</th> 
+                        <th>Tool_wear_min</th> 
+                        <th>Output</th>
+                    </tr>
+                    {% for record in data %}
+                    <tr>                        
+                        <td>{{ record.Air_temperature }}</td>
+                        <td>{{ record.Process_temperature }}</td>
+                        <td>{{ record.Rotational_speed }}</td>
+                        <td>{{ record.Torque }}</td>
+                        <td>{{ record.Tool_wear }}</td>
+                        <td>{{ record.Label }}</td>
+                    </tr>
+                {% endfor %}
+             </table>
+        </div>
+    </div>
+
+        
+    
+</body>
+</html>
+
+{% endblock content %}

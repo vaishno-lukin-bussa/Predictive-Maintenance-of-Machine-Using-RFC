@@ -1,0 +1,429 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <title>Document</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.2/swiper-bundle.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/4.0.2/bootstrap-material-design.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.9/tailwind.min.css">
+   <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+</head>
+<style>
+
+  body{
+    background-image: url('/static/images/bott.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .navbar {
+    background-color: #000550; /* Teal navbar background */
+}
+
+.navbar-brand {
+    color: #fff; /* White navbar brand text */
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #fff; /* White navbar links */
+    text-decoration: none;
+    font-size: 1rem;
+}
+    #chat-circle {
+      position: fixed;
+      bottom: 40px;
+      right: 50px;
+      background:linear-gradient(
+          90deg,
+          hsl(234, 100%, 25%) 0%,
+          hsl(0, 0%, 0%) 100%
+      );
+      width: 80px;
+      height: 80px;  
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      color: white;
+      padding: 28px;
+      cursor: pointer;
+      box-shadow: 0px 3px 16px 0px rgba(255, 255, 255, 0.6), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      }
+  
+      .btn#my-btn {
+          background: white;
+          padding-top: 13px;
+          padding-bottom: 12px;
+          border-radius: 45px;
+          padding-right: 40px;
+          padding-left: 40px;
+          color: #000000;
+      }
+      #chat-overlay {
+          background: rgba(255, 255, 255, 0.1);
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          display: none;
+      }
+      
+  
+  
+     .chat-box {
+      display: none;
+      background-image: url('') center/cover no-repeat; /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+      position: fixed;
+      right: 30px;
+      bottom: 10px;
+      width: 350px;
+      max-width: 85vw;
+      max-height: 100vh;
+      border-radius: 5px;
+      z-index: 100;
+      }
+      .chat-box-toggle {
+      float:right;
+      margin-right:15px;
+      cursor:pointer;
+      }
+      .chat-box-header {
+      background: linear-gradient(45deg, #000000, #0004ff, #000000, #0004ff);
+      height:70px;
+      border-top-left-radius:5px;
+      border-top-right-radius:5px; 
+      color:rgb(255, 255, 255);
+      text-align:center;
+      font-size:20px;
+      padding-top:17px;
+      }
+      .chat-box-body {
+      position: relative;  
+      height:370px;  
+      height:auto;
+      border:1px solid #ffffff;  
+      overflow: hidden;
+      }
+      .chat-box-body:after {
+      content: "";
+      opacity: 0.1;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      height:100%;
+      position: absolute;
+      z-index: -1;   
+      }
+      #chat-input {
+      background: #ffffff;
+      width:100%; 
+      position:relative;
+      height:47px;  
+      padding-top:10px;
+      padding-right:50px;
+      padding-bottom:10px;
+      padding-left:15px;
+      border:none;
+      resize:none;
+      outline:none;
+      border:1px solid #ccc;
+      color:#000000;
+      border-top:none;
+      border-bottom-right-radius:5px;
+      border-bottom-left-radius:5px;
+      overflow:hidden;  
+      }
+      .chat-input > form {
+          margin-bottom: 0;
+      }
+      #chat-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: #ccc;
+      }
+      #chat-input::-moz-placeholder { /* Firefox 19+ */
+      color: #ccc;
+      }
+      #chat-input:-ms-input-placeholder { /* IE 10+ */
+      color: #ccc;
+      }
+      #chat-input:-moz-placeholder { /* Firefox 18- */
+      color: #ccc;
+      }
+      .chat-submit {
+        position: relative;
+        display: inline-block;
+        margin-left: 303px;
+        top: -48px;
+        
+        padding: 5px 10px;
+        background-color: #ffffff; /* Green background */
+        color: white;
+        border: 1px solid #ffffff; /* Darker green border */
+        border-radius: 5px;
+        box-shadow:
+            0 5px #ffffff, /* Darker green shadow */
+            0 10px 15px rgba(92, 92, 92, 0.973); /* Black shadow */
+        transition: transform 0.3s ease;
+    }
+    
+    .chat-submit:hover {
+        transform: translateY(-3px);
+        box-shadow:
+            0 2px #ffffff, /* Darker green shadow */
+            0 5px 10px rgb(238, 238, 238); /* Black shadow */
+    }
+    
+    
+      .chat-logs {
+      padding:15px; 
+      height:370px;
+      overflow-y:scroll;
+      }
+  
+      .chat-logs::-webkit-scrollbar-track
+      {
+          -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
+          background-color: #F5F5F5;
+      }
+  
+      .chat-logs::-webkit-scrollbar
+      {
+          width: 5px;  
+          background-color: #F5F5F5;
+      }
+  
+      .chat-logs::-webkit-scrollbar-thumb
+      {
+          background-color: #313139;
+      }
+  
+  
+  
+      @media only screen and (max-width: 500px) {
+      .chat-logs {
+              height:40vh;
+          }
+      }
+  
+      .chat-msg.user > .msg-avatar img {
+      width:45px;
+      height:45px;
+      border-radius:50%;
+      float:left;
+      width:15%;
+      }
+      .chat-msg.self > .msg-avatar img {
+      width:45px;
+      height:45px;
+      border-radius:50%;
+      float:right;
+      width:15%;
+      }
+      .cm-msg-text {
+      background:white;
+      padding:10px 15px 10px 15px;  
+      color:#666;
+      max-width:75%;
+      float:left;
+      margin-left:10px; 
+      position:relative;
+      margin-bottom:20px;
+      border-radius:30px;
+      }
+      .chat-msg {
+      clear:both;    
+      }
+      .chat-msg.self > .cm-msg-text {  
+      float:right;
+      margin-right:10px;
+      background: linear-gradient(
+          90deg,
+          hsl(234, 100%, 25%) 0%,
+          hsl(0, 0%, 0%) 100%
+      );
+      color:white;
+      }
+      .cm-msg-button>ul>li {
+      list-style:none;
+      float:left;
+      width:50%;
+      }
+      .cm-msg-button {
+          clear: both;
+          margin-bottom: 70px;
+      }
+      .new__centered {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      }
+  
+      
+  
+      .button3 {
+        color: white;
+        background: linear-gradient(to right, #000000, #000000);
+        border-radius: 8px;
+        transition: 0.2s ease-in-out;
+      }
+      .button3:hover {
+        border-radius: 30px;
+      }
+  
+      .buttons1 {
+        display: flex;
+        flex-direction: column;
+      }
+  </style>
+<body>
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class='bx bx-up-arrow-alt scrollup__icon'></i>
+        </a>
+        <div id="chat-circle" class="btn btn-raised">
+        <div id="chat-overlay"></div>
+            <i class="material-icons">chat</i>
+        </div>
+
+        
+        <div class="chat-box">
+          <div class="chat-box-header">
+            Your ChatBot
+            
+            <span class="chat-box-toggle"><i class="material-icons">close</i></span>
+            
+          </div>
+          <div class="chat-box-body">
+            <div class="chat-box-overlay">   
+            </div>
+            <div class="chat-logs" style="background-image: url(https://cdn.pixabay.com/photo/2023/02/04/17/28/chat-7767693_1280.jpg); background-position: center;background-repeat: no-repeat; background-size: cover;">
+            </div>
+          </div>
+          <div class="chat-input" style="background-color: rgb(255, 255, 255);">      
+            <form>
+              <input type="text" id="chat-input"  placeholder="Send a message..."/>
+              <button type="submit" class="chat-submit"  id="chat-submit"><i class="material-icons" style="color: rgb(0, 0, 0);">send</i></button>
+                
+        
+            </form>      
+          </div>
+        </div>
+        </div>
+        <script>
+          $(function() {
+          var INDEX = 0; 
+          
+          $("#chat-submit").click(function(e) {
+              e.preventDefault();
+              var msg = $("#chat-input").val(); 
+              if(msg.trim() == ''){
+              return false;
+              }
+              generate_message(msg, 'self');
+              $.ajax({
+              type: 'POST',
+              url :"chatbot/",
+              data: { question: msg },
+              dataType: 'json',
+              success: function(response){
+                  console.log(response); // Log the entire response object
+                  var modelResponse = response.response;
+                  generate_message(modelResponse, 'user' ); 
+              },
+              error: function(err) {
+              console.error('Error communicating with the model:',err);
+              }
+              });
+          });
+          
+          function generate_message(msg, type) {
+              INDEX++;
+              var str="";
+              str += "<div id='cm-msg-"+INDEX+"' class=\"chat-msg "+type+"\">";
+              str += "          <span class=\"msg-avatar\">";
+              str += "            <img src=\"https://media.istockphoto.com/id/1445426863/vector/chat-bot-vector-logo-design-concept.jpg?s=612x612&w=0&k=20&c=XDdfzS4lNW9yxQ0BQGZq9KMLL4bJ8ywXlYdAhBSuoCA=\">";
+              str += "          <\/span>";
+              str += "          <div class=\"cm-msg-text\">";
+              str += msg;
+              str += "          <\/div>";
+              str += "        <\/div>";
+              $(".chat-logs").append(str);
+              $("#cm-msg-"+INDEX).hide().fadeIn(300);
+              if(type == 'self'){
+              $("#chat-input").val(''); 
+              }    
+              $(".chat-logs").stop().animate({ scrollTop: $(".chat-logs")[0].scrollHeight}, 1000);    
+          }  
+          
+          function generate_button_message(msg, buttons){
+              INDEX++;
+              var btn_obj = buttons.map(function(button) {
+              return  "              <li class=\"button\"><a href=\"javascript:;\" class=\"btn btn-primary chat-btn\" chat-value=\""+button.value+"\">"+button.name+"<\/a><\/li>";
+              }).join('');
+              var str="";
+              str += "<div id='cm-msg-"+INDEX+"' class=\"chat-msg user\">";
+              str += "          <span class=\"msg-avatar\">";
+              str += "            <img src=\"https:\/\/image.crisp.im\/avatar\/operator\/196af8cc-f6ad-4ef7-afd1-c45d5231387c\/240\/?1483361727745\">";
+              str += "          <\/span>";
+              str += "          <div class=\"cm-msg-text\">";
+              str += msg;
+              str += "          <\/div>";
+              str += "          <div class=\"cm-msg-button\">";
+              str += "            <ul>";   
+              str += btn_obj;
+              str += "            <\/ul>";
+              str += "          <\/div>";
+              str += "        <\/div>";
+              $(".chat-logs").append(str);
+              $("#cm-msg-"+INDEX).hide().fadeIn(300);   
+              $(".chat-logs").stop().animate({ scrollTop: $(".chat-logs")[0].scrollHeight}, 1000);
+              $("#chat-input").attr("disabled", true);
+          }
+          
+          $(document).delegate(".chat-btn", "click", function() {
+              var value = $(this).attr("chat-value");
+              var name = $(this).html();
+              $("#chat-input").attr("disabled", false);
+              generate_message(name, 'self');
+          })
+          
+          $("#chat-circle").click(function() {    
+              $("#chat-circle").toggle('scale');
+              $(".chat-box").toggle('scale');
+          })
+          
+          $(".chat-box-toggle").click(function() {
+              $("#chat-circle").toggle('scale');
+              $(".chat-box").toggle('scale');
+          })
+          
+          })
+      </script>
+        
+        <script src="/static/js/main.min.js"></script> 
+</body>
+</html>
+
+
+

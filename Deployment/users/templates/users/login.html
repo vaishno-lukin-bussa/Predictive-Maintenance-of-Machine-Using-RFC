@@ -1,0 +1,240 @@
+<!-- <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <style>
+      body {
+            background: radial-gradient(rgb(228, 204, 204), rgb(134, 123, 123));
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .main_box {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            max-width: 350px;
+            height: 400px;
+            /* padding: 1rem; */
+            position: relative;
+            background: linear-gradient(to right, rgb(180, 111, 111), rgb(245, 73, 30));
+            padding: 3px;
+            border-radius: 20px;
+        }
+
+        .box {
+            background: #222;
+            color: white;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 20px;
+            height: 81.5%;
+        }
+        h1{
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .heading{
+            margin-bottom: 20px;
+            margin-top: -10px
+        }
+
+        .form{
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        .int{
+            border-radius: 5px;
+            font-size: 17px;
+            margin-bottom: 10px;
+            border-color: red;
+        }
+        .btn{
+            font-size: 20px;
+            color: white;
+            background: red;
+            border-color: red;
+            margin-top: 80px;
+        }
+  </style>
+  <body>
+    <div class="main_box">
+      <div class="box">
+        <form method="POST">
+          {% if form.errors %}
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <div id="form_errors">
+                    {% for key, value in form.errors.items %}
+                    <strong>{{ value }}</strong>
+                    {% endfor %}
+                </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endif %}
+          {% csrf_token %}
+          <div class="heading">
+              <h1>Login</h1><br><br>
+          </div>
+           <div class="form">
+           <input class="int" type="text" name="username" placeholder="Username" required /><br>
+           <input class="int" type="password" name="password" placeholder="Password" required /><br>
+              
+          </div>
+            <center>  <button class="btn">Submit</button>
+              <h5>You Dont't have an Account</h5><a href="{% url 'users-register' %}" style="color: aliceblue;">Sign in</a></center>
+            </div>
+      </form>
+  </div>
+  </body>
+  </html> -->
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+  font-family: 'Roboto';
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+  background:
+    linear-gradient(
+      120deg,
+      rgba(87, 92, 86, 0.8),
+      rgba(140, 141, 140, 0.8)
+    ), 
+    url("https://wallpaperplay.com/walls/full/5/4/4/320513.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-panel {
+    width: 50%;
+    height: 350px;
+    background-color: #fff;
+}
+
+.login-panel div {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.left-side {
+    background-image: url('https://t4.ftcdn.net/jpg/08/15/67/45/240_F_815674534_ef0H5EESJ5zI8NMkduoXRaa0nGrlc7gE.jpg');
+    background-size: cover;
+}
+
+.right-side {
+    padding: 50px 25px;
+    box-sizing: border-box;
+}
+
+.right-side h1 {
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.right-side p {
+    font-size: 10px;
+    color: #888;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-transform: lowercase;
+}
+
+.right-side input {
+    margin: 10px 0;
+    padding: 2.5px 0;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #888;
+}
+
+input.submit-btn {
+    border: 2px solid #000;
+    border-radius: 15px;
+    width: 100px;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 900;
+    padding: 5px;
+}
+input.submit-btn:hover {
+  background:
+    linear-gradient(
+      120deg,
+      rgba(63, 94, 251, 1),
+      rgba(106, 208, 217, 1)
+    );
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1100px) {
+  .login-panel {
+    width: 70%;
+    height: 400px;
+    background-color: #fff;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .login-panel {
+    width: 70%;
+    height: 500px;
+    background-color: #fff;
+  }
+  .login-panel div:first-of-type {
+    width: 100%;
+    height: 100px;
+  }
+  .login-panel div {
+    width: 100%;
+    height: 400px;
+  }
+}
+
+*:focus {
+    outline: none;
+}
+</style>
+<body>
+    <section class="login-panel">
+        <div class="left-side"></div>
+        <div class="right-side">
+          <form method="post">
+          {% csrf_token %}
+          <h1>Sign in</h1><br><br>
+          <!-- <p>Sign up and get a free pressent</p> -->
+          <input type="text" name="username" id="username" placeholder="UserName"><br>
+          <input type="password" name="password" id="password1" placeholder="Password"><br><br>         
+          <input type="submit" value="let's go" class="submit-btn"><br>
+          <p style="font-size: medium;"> You Dont't Have An Account?, <a href="{% url 'users-register' %}">Log in</a></p>
+         </form>
+        </div>
+      </section> 
+</body>
+</html>

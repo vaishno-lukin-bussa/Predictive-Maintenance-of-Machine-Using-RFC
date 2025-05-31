@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile List</title>
+    <style>
+        body {
+            background: url(https://www.example.com/your-hospital-background-image.jpg) no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            font-family: 'Open Sans', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #004d99;
+            color: #ffffff;
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .header .home-button {
+            background-color: #ffffff;
+            color: #004d99;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .header .home-button:hover {
+            background-color: #e6f2ff;
+            color: #004d99;
+        }
+
+        .container {
+            padding: 80px 40px 40px; /* Adjusted for fixed header */
+            max-width: 1200px;
+            margin: auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .table thead th {
+            background-color: #004d99;
+            color: #ffffff;
+            text-transform: uppercase;
+            font-weight: bold;
+            padding: 12px;
+            border-bottom: 2px solid #003366;
+        }
+
+        .table tbody tr {
+            transition: all 0.3s ease-in-out;
+        }
+        .table tbody tr:hover {
+            background-color: #e6f2ff;
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .table td {
+            padding: 15px;
+            text-align: center;
+            vertical-align: middle;
+            border-bottom: 1px solid #cccccc;
+        }
+        .avatar-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .avatar-img:hover {
+            transform: scale(1.2);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        .text-center {
+            text-align: center;
+            font-size: 1.2em;
+            color: #004d99;
+        }
+
+        h2 {
+            font-weight: bold;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #004d99;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="/" class="home-button">Home</a>
+    </header>
+    <div class="container">
+        <h2>Profile List</h2>
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Avatar</th>
+                        <th>Bio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for profile in database %}
+                        <tr>
+                            <td>{{ profile.user.username }}</td>
+                            <td>{{ profile.user.email }}</td>
+                            <td><img src="{{ profile.avatar.url }}" alt="Avatar" class="avatar-img"/></td>
+                            <td>{{ profile.bio }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="4" class="text-center">No profiles found.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

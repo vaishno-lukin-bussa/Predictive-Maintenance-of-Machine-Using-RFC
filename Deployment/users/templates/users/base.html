@@ -1,0 +1,222 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+     <link rel="stylesheet" href="https://assets.codepen.io/7773162/swiper-bundle.min.css">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.2/swiper-bundle.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js"></script>
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+    <title></title>
+    <style>
+       @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        
+       .navbar {
+        display: flex;
+        justify-content: flex-end; /* Push content to the right */
+        padding: 10px 20px;
+        background-color: #333;
+        height: 0%;
+    }
+
+    .nav-links {
+        display: flex;
+        width: 100%;
+        justify-content: space-between; /* Space between left and right content */
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-links-left {
+        display: flex;
+        gap: 20px;
+    }
+
+    .nav-links-right {
+        display: flex;
+        gap: 20px;
+    }
+
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    .nav-links a:hover {
+        text-decoration: underline;
+    }
+    .navbar {
+    display: flex;
+    justify-content: space-between; /* Ensure there's space between left and right content */
+    padding: 10px 20px;
+    background-color: #4687a5;
+    
+}
+
+.nav-links {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links-left {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links-right {
+    display: flex;
+    gap: 20px;
+    margin-left: auto; /* Push right content to the right */
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+/* Ensures the navbar stays at the top of the page */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures navbar is above other content */
+}
+
+/* Aligns the nav-links within the navbar */
+.nav-links {
+  display: flex;
+  justify-content: space-around; /* Distributes nav items evenly */
+  align-items: center;
+  width: 100%;
+}
+
+/* Adds spacing and styles for individual nav items */
+.nav-links-left li {
+  list-style: none;
+  margin: 0 15px;
+}
+
+/* Ensures proper padding and font size */
+.nav-links-left a {
+  text-decoration: none;
+  color: #333; /* Change color to match your design */
+  padding: 10px 15px;
+  font-size: 16px;
+}
+
+/* Adjusts style on hover */
+.nav-links-left a:hover {
+  color: #007bff; /* Change color on hover */
+  background-color: #bdd5ee; /* Optional: add a background color on hover */
+  border-radius: 5px; /* Optional: add border radius for rounded corners */
+}
+    </style>
+</head>
+<body>
+    {% if user.is_authenticated %}
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <section class="d-flex justify-content-between align-items-center w-100">
+          <!-- User greeting -->
+          <div class="navbar-text" style="color: black;">
+            <h2>Machine</h2>
+           </div>
+          
+          <!-- Toggle button for mobile view -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <!-- Navbar links -->
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav ml-auto">
+            
+                <!-- Display links if user is authenticated -->
+                <div class="nav-links">
+                  <ul class="nav-links-left">
+                    <li><a href="{% url 'users-home' %}" style="color: black;">Home</a></li>
+                    <li><a href="{% url 'model_db' %}" style="color: black;">Database</a></li>
+                    <li><a href="{% url 'Basic_report' %}" style="color: black;">Basic Report</a></li>
+                    <li><a href="{% url 'Metrics_report' %}" style="color: black;">Metrics Report</a></li>
+                    <li><a href="{% url 'users-profile' %}" style="color: black;">Profile</a></li>
+                    <li><a href="{% url 'model' %}" style="color: black;">Prediction</a></li>
+                    <li><a href="{% url 'logout_view' %}" style="color: black;">Logout</a></li>
+                  </ul>
+                </div>
+             
+              {% endif %}
+            </ul>
+          </div>
+        </section>
+      </nav><br><br>
+      
+				
+                
+			</ul>
+		</div>
+	</nav>
+
+
+                       
+
+
+
+            
+
+
+
+
+
+
+
+
+
+    
+
+
+    <div class="container p-3 my-3">
+        <div class="row">
+            <div class="col-md-12">
+                {% if messages %}
+                    <div class="alert alert-dismissible" role="alert">
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                        {% endfor %}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endif %}
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+
+</html>

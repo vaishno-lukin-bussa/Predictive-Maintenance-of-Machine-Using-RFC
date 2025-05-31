@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Machine Failure</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+  <style>
+    /* Import Google Font */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+    /* Global Styles */
+    body {
+    background-image: url('https://t3.ftcdn.net/jpg/08/20/05/54/240_F_820055419_JcEzHguwO1XJfwJ5o6Ahb3Y4pTHwQndF.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    :root {
+      --primary-color: #096152; /* Bright Blue */
+      --secondary-color: #121414; /* Bright Green */
+      --background-color: #0e8f88; /* Light Grey */
+      --text-color: #2c3e50; /* Dark Blue */
+      --border-color: #bdc3c7; /* Light Grey */
+      --focus-color: #0a0a0a; /* Bright Red */
+    }
+    /* Body and Container Styles */
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: var(--background-color);
+      padding: 0;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000; /* Ensures navbar is above other content */
+    }
+
+    .container {
+      margin-top: 70px; /* Space for the fixed navbar */
+      max-width: 600px;
+      width: 100%;
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .container:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header .title {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    .header .description {
+      font-size: 16px;
+      color: var(--text-color);
+    }
+
+    /* Form Styles */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: var(--text-color);
+    }
+
+    .form-group input {
+      height: 45px;
+      border: 2px solid var(--border-color);
+      border-radius: 8px;
+      padding-left: 16px;
+      font-size: 16px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .form-group input:focus {
+      border-color: var(--focus-color);
+      box-shadow: 0 0 8px rgba(231, 76, 60, 0.3);
+    }
+    button {
+      height: 50px;
+      border: none;
+      border-radius: 8px;
+      background: var(--primary-color);
+      color: #575252;
+      font-size: 18px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    button:hover {
+      background: var(--secondary-color);
+      transform: scale(1.02);
+    }
+    /* Responsive Design */
+    @media only screen and (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+    }
+
+    .navbar {
+    display: flex;
+    justify-content: space-between; /* Ensure there's space between left and right content */
+    padding: 10px 20px;
+    background-color: #4687a5;
+    
+}
+
+.nav-links {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links-left {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links-right {
+    display: flex;
+    gap: 20px;
+    margin-left: auto; /* Push right content to the right */
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+/* Ensures the navbar stays at the top of the page */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures navbar is above other content */
+}
+
+/* Aligns the nav-links within the navbar */
+.nav-links {
+  display: flex;
+  justify-content: space-around; /* Distributes nav items evenly */
+  align-items: center;
+  width: 100%;
+}
+
+/* Adds spacing and styles for individual nav items */
+.nav-links-left li {
+  list-style: none;
+  margin: 0 15px;
+}
+
+/* Ensures proper padding and font size */
+.nav-links-left a {
+  text-decoration: none;
+  color: #333; /* Change color to match your design */
+  padding: 10px 15px;
+  font-size: 16px;
+}
+
+/* Adjusts style on hover */
+.nav-links-left a:hover {
+  color: #007bff; /* Change color on hover */
+  background-color: #f8f9fa; /* Optional: add a background color on hover */
+  border-radius: 5px; /* Optional: add border radius for rounded corners */
+}
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <section class="d-flex justify-content-between align-items-center w-100">
+      <!-- User greeting -->
+      <div class="navbar-text" style="color: black;">
+       <h3>Machine Failure</h3>
+      </div>
+      
+      <!-- Toggle button for mobile view -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Navbar links -->
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav ml-auto">
+          {% if user.is_authenticated %}
+            <!-- Display links if user is authenticated -->
+            <div class="nav-links">
+              <ul class="nav-links-left">
+                <li><a href="{% url 'users-home' %}">Home</a></li>
+                <li><a href="{% url 'model_db' %}">Database</a></li>
+                <li><a href="{% url 'Basic_report' %}">Basic Report</a></li>
+                <li><a href="{% url 'users-profile' %}">Profile</a></li>
+                <li><a href="{% url 'model' %}">Prediction</a></li>
+                {% if user.is_authenticated %}
+               <li><a href="{% url 'logout_view' %}">logout</a></li>
+                {% endif %}
+              </ul>
+            </div>
+          {% endif %}
+        </ul>
+      </div>
+    </section>
+  </nav><br><br>
+  
+  <section>
+  <div class="container">
+    <header class="header">
+      <h1 id="title" class="text-center">Inputs Model Form</h1>
+      <p id="description" class="text-center"></p>
+    </header>
+    
+    
+    <div class="form-wrap">
+      <a class="rounded-lg px-4 py-2 bg-blue-500 text-blue-100 hover:bg-blue-600 duration-300" href="{% url 'fetch_firebase_data' %}">Request</a>
+      <form method="post" id="survey-form" action="{% url 'model' %}">
+        {% csrf_token %}
+        
+       
+        <div class="form-group">
+            <label for="Air_temperature_K">Air_temperature</label>
+            <input type="number" step="0.000001" id="Air_temperature" value="{{ data }}" name="Air_temperature" placeholder="Enter your Value">
+        </div>
+
+        
+        <div class="form-group">
+            <label for="Process_temperature_K">Process_temperature</label>
+            <input type="number" step="0.000001" id="Process_temperature_K" value="{{ data2 }}" name="Process_temperature" placeholder="Enter your Value">
+        </div>
+
+        <div class="form-group">
+            <label for="Rotational_speed_rpm">Rotational_speed</label>
+            <input type="number" step="0.000001" id="Rotational_speed" name="Rotational_speed" placeholder="Enter your Value">
+        </div>
+
+        <div class="form-group">
+          <label for="Torque_Nm">Torque_Nm</label>
+          <input type="number" step="0.000001" id="Torque" name="Torque" placeholder="Enter your Value">
+      </div>
+
+
+        <div class="form-group">
+            <label for="Tool_wear_min">Tool_wear_min</label>
+            <input type="number" step="0.000001" id="Tool_wear" name="Tool_wear" placeholder="Enter your Value">
+        </div>
+        <button type="submit" style="color: white;">Submit</button> 
+      </section>
+    </form>
+    </center>
+</body>
+</html>
+
+
+
+
